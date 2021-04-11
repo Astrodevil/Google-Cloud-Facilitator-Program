@@ -8,16 +8,19 @@ In GCP console go to Navigation Menu > Bigquery
 Ⅴ).Now you just have to copy these given commands and paste it in the Query Edition Section. then click on the Run button each time you copy.
 after that Check your Progress.
 
-```SELECT sum(cumulative_confirmed) as total_cases_worldwide 
+   ```yaml
+   SELECT sum(cumulative_confirmed) as total_cases_worldwide 
    FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
-   where date='2020-04-15'```
+   where date='2020-04-15'
+   ```
 
 
 
 
 *2.Worst Affected Areas*
 
-```with deaths_by_states as (
+   ```yaml 
+   with deaths_by_states as (
    SELECT subregion1_name as state, sum(cumulative_deceased) as death_count
    FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
    where country_name="United States of America" and date='2020-04-10' and subregion1_name is NOT NULL
@@ -25,45 +28,52 @@ after that Check your Progress.
    )
    select count(*) as count_of_states
    from deaths_by_states
-   where death_count > 100```
+   where death_count > 100
+   ```
 
 
 
 
 *3.Identifying Hotspots*
 
-```SELECT subregion1_name as state, sum(cumulative_confirmed) as total_confirmed_cases 
+   ```yaml
+   SELECT subregion1_name as state, sum(cumulative_confirmed) as total_confirmed_cases 
    FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
    where country_name="United States of America" and date='2020-04-10' and subregion1_name is NOT NULL
    group by subregion1_name
    having total_confirmed_cases > 1000
-   order by total_confirmed_cases desc```
+   order by total_confirmed_cases desc
+   ```
 
 
 
 *4.Fatality Ratio*
-
-```select sum(cumulative_confirmed) as total_confirmed_cases, sum(cumulative_deceased) as total_deaths, (sum(cumulative_deceased)/sum(cumulative_confirmed))*100 as case_fatality_ratio
+  
+  ```yaml
+   select sum(cumulative_confirmed) as total_confirmed_cases, sum(cumulative_deceased) as total_deaths, (sum(cumulative_deceased)/sum(cumulative_confirmed))*100 as  case_fatality_ratio
    from `bigquery-public-data.covid19_open_data.covid19_open_data`
-   where country_name="Italy" and date BETWEEN "2020-04-01" AND "2020-04-30"```
+   where country_name="Italy" and date BETWEEN "2020-04-01" AND "2020-04-30"
+   ```
 
 
 
 
 *5.Identifying specific day*
-
-```SELECT date
+   ```yaml
+   SELECT date
    FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
    where country_name="Italy" and cumulative_deceased>10000
    order by date asc
-   limit 1```
+   limit 1
+   ```
 
 
 
 
 *6.Finding days with zero net new cases*
 
-```WITH india_cases_by_date AS (
+   ```yaml
+   WITH india_cases_by_date AS (
      SELECT
        date,
        SUM( cumulative_confirmed ) AS cases
@@ -87,15 +97,16 @@ after that Check your Progress.
    )
    select count(*)
    from india_previous_day_comparison
-   where net_new_cases=0```
+   where net_new_cases=0
+   ```
 
 
 
 
 
 *7.Doubling rate*
-
-```WITH us_cases_by_date AS (
+   ```yaml
+   WITH us_cases_by_date AS (
      SELECT
        date,
        SUM(cumulative_confirmed) AS cases
@@ -120,15 +131,16 @@ after that Check your Progress.
    )
    select Date, cases as Confirmed_Cases_On_Day, previous_day as Confirmed_Cases_Previous_Day, percentage_increase as Percentage_Increase_In_Cases
    from us_previous_day_comparison
-   where percentage_increase > 10```
+   where percentage_increase > 10
+   ```
 
 
 
 
 
 *8.Recovery rate*
-
-```WITH cases_by_country AS (
+   ```yaml
+   WITH cases_by_country AS (
      SELECT
        country_name AS country,
        sum(cumulative_confirmed) AS cases,
@@ -150,15 +162,16 @@ after that Check your Progress.
    FROM recovered_rate
    WHERE cases > 50000
    ORDER BY recovery_rate desc
-   LIMIT 10```
+   LIMIT 10
+   ```
 
 
 
 
 
 *9.CDGR - Cumulative Daily Growth Rate*
-
-```WITH
+   ```yaml
+   WITH
      france_cases AS (
      SELECT
        date,
@@ -184,15 +197,16 @@ after that Check your Progress.
    )
 
    select first_day_cases, last_day_cases, days_diff, POW((last_day_cases/first_day_cases),(1/days_diff))-1 as cdgr
-   from summary```
+   from summary
+   ```
 
 
 
 
 
 *10.Create a Datastudio report*
-
-```SELECT
+   ```yaml
+   SELECT
      date, SUM(cumulative_confirmed) AS country_cases,
      SUM(cumulative_deceased) AS country_deaths
    FROM
@@ -201,7 +215,8 @@ after that Check your Progress.
      date BETWEEN '2020-03-15'
      AND '2020-04-30'
      AND country_name ="United States of America"
-   GROUP BY date```
+   GROUP BY date
+   ```
 
 
 
