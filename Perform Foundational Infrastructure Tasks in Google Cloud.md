@@ -26,7 +26,6 @@ Trigger	             Cloud Storage
 
 **Task 4.	Copy the given index.js and package.json to the dialog.**
 
-
 Make sure you replace the text REPLACE_WITH_YOUR_TOPIC with the topic you created in task 2, in line 15 of index.js.
 
 
