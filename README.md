@@ -2,7 +2,7 @@
 
 **All Challenge Labs Commands are uploaded in this Repository**
 
-# Contributing
+# Contributing Guidelines
 Thank you for your interest in contributing to our Repo! 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
 ### For Contribution
