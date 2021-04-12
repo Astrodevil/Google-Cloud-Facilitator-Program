@@ -1,6 +1,6 @@
 # Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab
 
-> Launch the lab [here](https://google.qwiklabs.com/quests/118)
+> Launch the lab 
 
 In this lab there is no command line instructions, you have to just use the **Google Cloud Platform (GCP)** for completing this lab. A walkthrough of each task is available below: 
 
