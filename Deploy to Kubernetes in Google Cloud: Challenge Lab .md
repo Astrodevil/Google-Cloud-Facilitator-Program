@@ -3,7 +3,7 @@
 
 **step 1:----------- Create a Docker image and store the Dockerfile -----------------**
 
-
+```yaml
 gsutil cat gs://cloud-training/gsp318/marking/setup_marking.sh | bash
 
 gcloud source repos clone valkyrie-app
@@ -32,7 +32,7 @@ cd marking
 
 ./step1.sh
 
-
+```
 
 
 
@@ -40,7 +40,7 @@ cd marking
 
 **step 2:----------- Test the created Docker image -----------------**
 
-
+```yaml
 cd ..
 
 cd valkyrie-app
@@ -53,27 +53,27 @@ cd marking
 
 ./step2.sh  
 
-
+```
 
 
 
 **step 3:----------- Push the Docker image in the Container Repository -----------------**
 
-
+```yaml
 cd ..
 
 cd valkyrie-app
 docker tag valkyrie-app:v0.0.1 gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.1
 docker push gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.1
 sed -i s#IMAGE_HERE#gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.1#g k8s/deployment.yaml
-
+```
 
 
 
 
 **step 4:------------ Create and expose a deployment in Kubernetes -----------------**'
 
-
+```yaml
 sed -i s#IMAGE_HERE#gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.1#g k8s/deployment.yaml
 
 gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
@@ -85,14 +85,14 @@ kubectl create -f k8s/service.yaml
 git merge origin/kurt-dev
 
 kubectl edit deployment valkyrie-dev
-
+```
 
 
 
 
 **step 5:------------ Update the deployment with a new version of valkyrie-app -----------------**
 
-
+```yaml
 docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.2 . 
 
 docker push gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.2
@@ -100,10 +100,11 @@ docker push gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.2
 kubectl edit deployment valkyrie-dev
 
 docker ps
+```
 
 **step 6:-------------------- Create a pipeline in Jenkins to deploy your app -----------------**
 
-
+```yaml
 docker kill container_id
 
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
@@ -115,9 +116,10 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
 gcloud source repos list
 
 sed -i "s/green/orange/g" source/html.go
-
+```
 
 # Update project in Jenkinsfile
+```yaml
 
 sed -i "s/YOUR_PROJECT/$GOOGLE_CLOUD_PROJECT/g" Jenkinsfile
 
@@ -130,5 +132,6 @@ git add .
 git commit -m "built pipeline init"
 
 git push 
+```
 
 in last on jenkins windows tamplate just click on built which is in nevigation manu 
