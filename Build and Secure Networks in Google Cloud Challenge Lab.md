@@ -16,6 +16,7 @@ _after doing each task just **Check Your Progress**.and your marks get upadated 
 gcloud compute firewall-rules delete open-access
 ```
 **Enter Y**
+
 ---
 
 ## Task 2:Start the bastion host instance
