@@ -32,7 +32,7 @@ includedPermissions:
   - storage.objects.create
 ```
 
-_Save by : ctrl + o -> enter -> ctrl + x_
+**Save by : Ctrl+O -> enter -> Ctrl+X**
 
 ```yaml
 gcloud iam roles create orca_storage_update --project $DEVSHELL_PROJECT_ID \
