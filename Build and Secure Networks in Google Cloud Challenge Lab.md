@@ -123,7 +123,7 @@ Tips and tricks:
 ### Task 1: Check the firewall rules. Remove the overly permissive rules.
 
 * Go to **VPC network** > **Firewall** > will see **open-access**
-* Use the following command from the cloud console:
+* Run the following command in the cloud shell:
 
 ```yaml
 gcloud compute firewall-rules delete open-access
