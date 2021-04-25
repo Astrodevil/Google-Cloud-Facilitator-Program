@@ -10,7 +10,7 @@ printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-passwor
 ```
 # PREVIEW ON PORT 8080, SIGN IN JENKINS
 	> username : admin
-	> password : see at your cloud shell ooutput (the previous step)
+	> password : see at your cloud shell output (the previous step)
 
 # BACK TO CLOUD SHELL, RUN :
 ```yaml
