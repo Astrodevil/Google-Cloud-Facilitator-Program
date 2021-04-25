@@ -69,7 +69,7 @@ vi main.go
 vi html.go
 ```
 > press "i"
-	  Change the two instances of <div class="card blue"> with following: <div class="card orange"> (in line 37 & 81)
+	  Change the two instances of div class="card blue" with following: div class="card orange" (in line 37 & 81)
 	> Esc -> :wq
 
 # BACK TO CLOUD SHELL, RUN :
