@@ -34,7 +34,7 @@ git add .
 git commit -m "initial commit"
 git push origin master
 ```
-#BACK TO JENKINS DASBORD
+#BACK TO JENKINS DASHBORD
 	> Manage Jenkins > Manage Credentials > System
 	> Select Global credentials (unrestricted)
    	> Select Add Credentials
@@ -42,7 +42,7 @@ git push origin master
         > Project Name: [PROJECT_ID]
         > Select OK
 
-#BACK TO JENKINS DASBORD
+#BACK TO JENKINS DASHBORD
 	> New Item
 	> Enter an item name: sample-app
     	> Select Multibranch Pipeline
@@ -78,7 +78,7 @@ git add Jenkinsfile html.go main.go
 git commit -m "Version 2.0.0"
 git push origin new-feature
 ```
-# CHEK YOUR JENKINS DASHBOARD
+# CHECK YOUR JENKINS DASHBOARD
 
 ## BACK TO CLOUD SHELL, RUN:
 ```yaml
@@ -93,7 +93,7 @@ jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services 
 git checkout master
 git push origin master
 ```
-# CHEK YOUR JENKINS DASHBOARD
+# CHECK YOUR JENKINS DASHBOARD
 
 # BACK TO CLOUD SHELL, RUN:
 ```yaml
