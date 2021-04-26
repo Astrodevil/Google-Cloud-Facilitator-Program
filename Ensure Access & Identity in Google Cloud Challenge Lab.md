@@ -1,8 +1,6 @@
 # Ensure Access & Identity in Google Cloud: Challenge Lab
 
----
 
-> Launch the lab [here](https://www.qwiklabs.com/focuses/14572?locale=en&parent=catalog)
 
 ## Your challenges
 
