@@ -49,7 +49,7 @@ Now you have to perform the steps to HTTP(s) Load Balancer in front of two web s
 
 *Creating an instance template:
   ```yaml
-  gcloud compute instance-template create nginx-templates --metadata-from-file startup-script=startup.sh
+  gcloud compute instance-templates create nginx-template --metadata-from-file startup-script=startup.sh
 ```
 *Creating a target pool:
   ```yaml
