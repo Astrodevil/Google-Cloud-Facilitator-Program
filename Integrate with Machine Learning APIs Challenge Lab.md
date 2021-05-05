@@ -4,33 +4,22 @@
 
 You have started a new role as a member of the Analytics team for Jooli Inc. You are expected to help with the development and assessment of data sets for your company's Machine Learning projects. Common tasks include preparing, cleaning, and analyzing diverse data sets.
 
-### Task 1: Configure a service account to access the Machine Learning APIs, BigQuery, and Cloud Storage
+### Task 1 & 2: Configure a service account to access the Machine Learning APIs, BigQuery, and Cloud Storage
 
-* Go to **Cloud Shell** and add the `PROJECT` environment variable.
-
+**Run** in Cloud Shell :-
 ```yaml
-export PROJECT=<id>
+export SANAME=challenge
+gcloud iam service-accounts create $SANAME
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/bigquery.admin
+gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:$SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role=roles/storage.admin
+gcloud iam service-accounts keys create sa-key.json --iam-account $SANAME@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
+export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/sa-key.json
+gsutil cp gs://$DEVSHELL_PROJECT_ID/analyze-images.py .
 ```
-
-* Go to **IAM & Admin** > Service Accounts > CREATE SERVICE ACCOUNT
-
-* Enter Service account name as `my-account@<project_id>` > CREATE
-
-* Enter the two roles as **BigQuery Admin** and **Cloud Storage Admin**
-
-* Click CONTINUE
-
-### Task 2: Create and download a credential file for your Service Account
-
-* Click on three dots > Create key > Key type: JSON > CREATE
 
 ### Task 3: Modify the Python script to extract text from image files
 
-* Three dots on Cloud Shell > Upload file > Select the key file
-
-* Find the script in Storage > Select the bucket > analyze-images.py > Download
-
-* Modify as follow:
+Open Editor and replace the content of "analyze-images.py" file with :-
 
 ```python
 # Dataset: image_classification_dataset
@@ -136,13 +125,10 @@ errors = bq_client.insert_rows(table, rows_for_bq)
 assert errors == []
 ```
 
-* Three dots Cloud Shell > Upload the file.
 
 * Run in Cloud Shell:
 
 ```yaml
-export GOOGLE_APPLICATION_CREDENTIALS=key.json
-
 python3 analyze-images.py $DEVSHELL_PROJECT_ID $DEVSHELL_PROJECT_ID
 ```
 
