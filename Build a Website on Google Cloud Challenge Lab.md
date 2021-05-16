@@ -1,6 +1,6 @@
 # Build a Website on Google Cloud: Challenge Lab
 
-> Launch the lab [here](https://www.qwiklabs.com/focuses/11765?parent=catalog)
+
 
 ## Your challenges
 
