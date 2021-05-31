@@ -25,7 +25,20 @@ cat lab.schema
 ```
 
 * Now, create a table inside the `lab` dataset and configure it as follows: **Watch steps in my video**
-
+[
+         {"type":"STRING","name":"guid"},
+         {"type":"BOOLEAN","name":"isActive"},
+         {"type":"STRING","name":"firstname"},
+         {"type":"STRING","name":"surname"},
+         {"type":"STRING","name":"company"}, 
+         {"type":"STRING","name":"email"},
+         {"type":"STRING","name":"phone"}, 
+         {"type":"STRING","name":"address"},
+         {"type":"STRING","name":"about"},
+         {"type":"TIMESTAMP","name":"registered"}, 
+         {"type":"FLOAT","name":"latitude"},
+         {"type":"FLOAT","name":"longitude"}
+    ]
 
 * Click on **Create table**
 
