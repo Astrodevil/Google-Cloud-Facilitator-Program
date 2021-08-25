@@ -1,3 +1,5 @@
+#  [VIDEO LINK](https://youtube.com/playlist?list=PL2ambAOfYA68XfMJ5tRTIUxwO7yQKavJQ)
+  
 # Google-Cloud-Facilitator-Program
 
 **All Challenge Labs Commands are uploaded in this Repository**
