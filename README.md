@@ -1,4 +1,5 @@
 #  [VIDEO LINK](https://youtube.com/playlist?list=PL2ambAOfYA68XfMJ5tRTIUxwO7yQKavJQ)
+#  [MEDIUM BLOG](https://astrodevil.medium.com/list/qwiklabs-challenge-lab-solutions-2b097ddb41bb)
   
 # Google-Cloud-Facilitator-Program
 
